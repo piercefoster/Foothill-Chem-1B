@@ -1,0 +1,19 @@
+body {
+  font-family: sans-serif;
+  background: #f0f0f0;
+  text-align: center;
+  padding: 2em;
+}
+
+#game {
+  background: white;
+  padding: 2em;
+  border-radius: 10px;
+  display: inline-block;
+  max-width: 400px;
+}
+
+button {
+  margin: 0.5em;
+  padding: 0.5em 1em;
+}
