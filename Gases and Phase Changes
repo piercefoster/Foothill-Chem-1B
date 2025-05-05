@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gas Behavior Simulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .gas-box {
+            width: 150px;
+            height: 150px;
+            background-color: #e2f3ff;
+            border: 1px solid #007bff;
+            position: relative;
+            overflow: hidden;
+        }
+        .molecule {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff5722;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gas Behavior Simulator</h1>
+    <p>Change the temperature and pressure and watch how the gas molecules behave.</p>
+    <div class="container">
+        <div id="box1" class="gas-box"></div>
+        <div id="box2" class="gas-box"></div>
+    </div>
+    <button onclick="simulateChange()">Change Temperature & Pressure</button>
+    <p id="result"></p>
+
+    <script>
+        let molecules = [];
+
+        function generateMolecules(boxId) {
+            const box = document.getElementById(boxId);
+            for (let i = 0; i < 10; i++) {
+                const molecule = document.createElement('div');
+                molecule.classList.add('molecule');
+                molecule.style.top = `${Math.random() * 140}px`;
+                molecule.style.left = `${Math.random() * 140}px`;
+                box.appendChild(molecule);
+                molecules.push(molecule);
+            }
+        }
+
+        function simulateChange() {
+            const box1 = document.getElementById('box1');
+            const box2 = document.getElementById('box2');
+            box1.innerHTML = '';
+            box2.innerHTML = '';
+            molecules = [];
+
+            generateMolecules('box1');
+            generateMolecules('box2');
+
+            document.getElementById('result').textContent = "Observe how the molecules move as the temperature and pressure change.";
+        }
+
+        simulateChange();  // Initial molecule generation
+    </script>
+</body>
+</html>
